@@ -6,17 +6,14 @@ class App extends Component {
         this.state = { displayAbout: false };
 
         //so that "this" can be used inside the helper method
-        this.unhideAboutSection = this.unhideAboutSection.bind(this);
+        this.toggleAboutSection = this.toggleAboutSection.bind(this);
 
         console.log('Component constructor this is ', this);
     }
 
-    unhideAboutSection() {
-        console.log('unhideAboutSection this is ', this);
-        this.setState( { displayAbout: true });
+    toggleAboutSection() {
+        this.setState({displayAbout: !this.state.displayAbout});
     }
-
-    
 
     render() {
         
@@ -29,8 +26,9 @@ class App extends Component {
                 this.state.displayAbout ? (<div>
                     <p>This app is created by Cowtown Software.</p>
                     <p>We created this app in 2020.</p>
+                    <button onClick={this.toggleAboutSection}>Hide section</button>
                 </div>) : (<div>
-                    <button onClick={this.unhideAboutSection}>Unhide section</button>
+                    <button onClick={this.toggleAboutSection}>Unhide section</button>
                     </div>)
                 }
             </div>
