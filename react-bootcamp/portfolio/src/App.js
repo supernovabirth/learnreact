@@ -7,14 +7,10 @@ class App extends Component {
     }
 
     render() {
-        let about = (<div>
+        const about = this.state.displayAbout ? (<div>
                     <p>This app is created by Cowtown Software.</p>
                     <p>We created this app in 2020.</p>
-                </div>);
-
-        if (!this.state.displayAbout){
-            about = null;
-        }
+                </div>) : null;
         
         return (
             <div>
