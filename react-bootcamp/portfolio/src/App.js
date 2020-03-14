@@ -3,8 +3,20 @@ import React, {Component} from 'react';
 class App extends Component {
     constructor(){
         super();
-        this.state = { displayAbout: true };
+        this.state = { displayAbout: false };
+
+        //so that "this" can be used inside the helper method
+        this.unhideAboutSection = this.unhideAboutSection.bind(this);
+
+        console.log('Component constructor this is ', this);
     }
+
+    unhideAboutSection() {
+        console.log('unhideAboutSection this is ', this);
+        this.setState( { displayAbout: true });
+    }
+
+    
 
     render() {
         
@@ -17,7 +29,9 @@ class App extends Component {
                 this.state.displayAbout ? (<div>
                     <p>This app is created by Cowtown Software.</p>
                     <p>We created this app in 2020.</p>
-                </div>) : null
+                </div>) : (<div>
+                    <button onClick={this.unhideAboutSection}>Unhide section</button>
+                    </div>)
                 }
             </div>
         )
