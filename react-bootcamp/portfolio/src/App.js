@@ -1,17 +1,9 @@
 import React, {Component} from 'react';
 
 class App extends Component {
-    constructor(){
-        super();
-        this.state = { displayAbout: false };
+    state = { displayAbout: false };
 
-        //so that "this" can be used inside the helper method
-        this.toggleAboutSection = this.toggleAboutSection.bind(this);
-
-        console.log('Component constructor this is ', this);
-    }
-
-    toggleAboutSection() {
+    toggleAboutSection = () => {
         this.setState({displayAbout: !this.state.displayAbout});
     }
 
