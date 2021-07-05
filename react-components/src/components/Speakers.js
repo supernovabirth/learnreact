@@ -1,5 +1,7 @@
+import { data } from "../../SpeakerData";
 import Speaker from "./Speaker";
-function Speakers({ data }) {
+
+function Speakers() {
     return (
         <div className="container speakers-list">
             <div className="row">
