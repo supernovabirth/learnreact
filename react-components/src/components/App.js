@@ -1,4 +1,3 @@
-import { data } from "../../SpeakerData";
 import Header from "./Header";
 import { useState } from "react";
 import Speakers from "./Speakers";
@@ -11,7 +10,7 @@ function App() {
     return (
         <div className={theme === "light" ? "container-fluid" : "container-fluid dark"}>
             <Header theme={theme} />
-            <Speakers data={data} theme={theme} setTheme={setTheme} />
+            <Speakers theme={theme} setTheme={setTheme} />
         </div>
     )
 }
