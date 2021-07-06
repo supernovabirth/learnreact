@@ -1,9 +1,4 @@
-import { useState } from 'react';
-
-function SpeakersToolbar({ theme, setTheme }) {
-
-    const [showSessions, setShowSessions] = useState(true);
-
+function SpeakersToolbar({ theme, setTheme, showSessions, setShowSessions }) {
     return (
         <section className="toolbar dark-theme-header">
             <div className="container">
@@ -12,7 +7,13 @@ function SpeakersToolbar({ theme, setTheme }) {
                         <li className="d-flex flex-column flex-md-row">
                             <b>Show Sessions&nbsp;&nbsp;</b>
                             <label className="fav">
-                                <input type="checkbox" checked={true} />
+                                <input type="checkbox" checked={showSessions}
+                                    onChange={
+                                        (event) => {
+                                            setShowSessions(event.target.checked);
+                                        }
+                                    }
+                                />
                                 <span className="switch"></span>
                             </label>
                         </li>
