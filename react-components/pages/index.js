@@ -1,9 +1,9 @@
-import Speakers from "../src/components/Speakers";
+import App from "../src/components/App";
 
 const IndexPage = () => {
     //const {id, bio, first, last, favorite, twitterHandle, company, sessions} = data[0];
     return (
-        <Speakers />
+        <App />
     )
 };
 

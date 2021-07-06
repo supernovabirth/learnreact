@@ -4,7 +4,7 @@ import Header from "./Header";
 import SpeakersToolbar from "./SpeakersToolbar";
 import { useState } from "react";
 
-function Speakers() {
+function App() {
     const [theme, setTheme] = useState("light");
     //TODO: save default value on user profile, auto save selected value to user profile
     //onChange setTheme and call API to save value
@@ -18,4 +18,4 @@ function Speakers() {
     )
 }
 
-export default Speakers;
+export default App;
