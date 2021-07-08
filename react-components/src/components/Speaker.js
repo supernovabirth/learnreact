@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 function Session({
     title, room
 }) {
@@ -34,6 +36,7 @@ function SpeakerImage({ id, first, last }) {
 }
 
 function SpeakerFavorite({ favorite, onFavoriteToggle }) {
+    const [inTransition, setInTransition] = useState(false);
     return (
         <div className="action padB1">
             <span
@@ -43,6 +46,9 @@ function SpeakerFavorite({ favorite, onFavoriteToggle }) {
                     favorite === true ? "fa fa-star orange" : "fa fa-star-o orange"
                 } />{" "}
                 Favorite{" "}
+                {inTransition ? (
+                    <span className="fas fa-circle-notch fa-spin"></span>
+                ) : null}
             </span>
         </div>
     )
