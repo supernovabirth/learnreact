@@ -30,16 +30,19 @@ function userRequestDelay(delayTime = 1000, initialData = []) {
 
     });
 
-    function updateRecord(recordUpdated) {
+    function updateRecord(recordUpdated, doneCallback) {
         //if the id matches replace the block with speakerUpdateRecord .
         //Note: this is like x = x*2 example
         const newRecords = data.map(function (rec) {
             return rec.id === recordUpdated.id ? recordUpdated : rec;
-        });
+        }); //TODO: does this update the data in SpeakersList?
 
         async function delayFunction() {
             try {
                 await delay(delayTime);
+                if (doneCallback) {
+                    doneCallback();
+                }
                 setData(newRecords);
             } catch (error) {
                 console.log("error thrown inside delayFunction", error);

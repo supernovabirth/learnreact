@@ -12,6 +12,8 @@ function SpeakersList({ showSessions }) {
         updateRecord,
     } = useRequestDelay(2000, data);
 
+    console.log("Rendering SpeakersList");
+
     if (requestStatus === REQUEST_STATUS.FAILURE) {
         return (
             <div className="text-danger">
@@ -36,11 +38,11 @@ function SpeakersList({ showSessions }) {
                                 key={speaker.id}
                                 speaker={speaker}
                                 showSessions={showSessions}
-                                onFavoriteToggle={() => {
+                                onFavoriteToggle={(doneCallback) => {
                                     updateRecord({
                                         ...speaker,
                                         favorite: !speaker.favorite
-                                    }); //spread syntax used for merging... 
+                                    }, doneCallback); //spread syntax used for merging... 
                                 }} //favorite is replaced inside speaker
                             />
                         );
